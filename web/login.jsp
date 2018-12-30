@@ -15,7 +15,7 @@
                         <a href="index.jsp">主页</a>
                     </li>
                     <li>
-                        <a href="index.jsp">关于黄鑫</a>
+                        <a href="index.jsp">关于我们</a>
                     </li>
                 </ul>
 
@@ -39,17 +39,17 @@
             </h1>
         </div>
         <!-- 登陆表单 -->
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="dologin.jsp" method="POST" >
             <div class="form-group">
                 <label for="username" class="col-sm-3 control-label">用户名</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="username" placeholder="用户名">
+                    <input type="text" name="username" class="form-control" id="username" placeholder="用户名">
                 </div>
             </div>
             <div class="form-group">
                 <label for="password" class="col-sm-3 control-label">密码</label>
                 <div class="col-sm-8">
-                    <input type="password" class="form-control" id="Password" placeholder="密码">
+                    <input type="password" name="password" class="form-control" id="Password" placeholder="密码">
                 </div>
             </div>
             <div class="text text-center">
