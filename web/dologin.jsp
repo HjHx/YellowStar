@@ -1,6 +1,5 @@
 <%@ page import="entity.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%@ page import="entity.UserCheck" %>
 <%
     request.setCharacterEncoding("utf-8");
@@ -9,7 +8,6 @@
     username = (String)request.getParameter("username");
     password = (String)request.getParameter("password");
     System.out.println("POST过来的username:"+username+",password:"+password);
-
     if( "".equals(username) )
     {
         out.print("用户名为空");
@@ -41,6 +39,4 @@
             }
         }
     }
-
-
 %>

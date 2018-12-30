@@ -30,7 +30,6 @@ public class UserCheck
                 rs = sql.executeQuery();
                 if(rs.next())
                 {
-                    System.out.println("用户存在");
                     user = new User();
                     user.setUid(rs.getInt("uid"));
                     user.setUsername(rs.getString("username"));

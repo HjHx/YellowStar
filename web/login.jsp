@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="comm/header.jsp" />
-
 <div class="row clearfix">
     <div class="col-md-12 column">
         <!-- 导航部分 -->
@@ -56,7 +55,7 @@
                 <button type="submit" class="btn btn-primary">登陆</button>
                 <button type="reset" class="btn btn-default">重置</button>
             </div>
-    </div>
-    </form>
-    <!-- 登陆表单结束 -->
+        </div>
+        </form>
+        <!-- 登陆表单结束 -->
 <jsp:include page="comm/footer.jsp" />
