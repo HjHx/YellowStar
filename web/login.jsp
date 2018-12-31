@@ -1,4 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    // 终端显示方便观察，测试代码，上线须删
+    System.out.println("访问登录页面");
+%>
 <jsp:include page="comm/header.jsp" />
 <div class="row clearfix">
     <div class="col-md-12 column">

@@ -1,5 +1,4 @@
 package entity;
-
 /**
  * @author: 我的袜子都是洞
  * @description: 用户的实体类
@@ -48,11 +47,13 @@ public class User
         this.type = type;
     }
 
-    public String getCrate_time() {
-        return crate_time;
+    public String getCrate_time()
+    {
+        return this.crate_time;
     }
 
-    public void setCrate_time(String crate_time) {
+    public void setCrate_time(String crate_time)
+    {
         this.crate_time = crate_time;
     }
 }

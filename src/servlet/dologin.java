@@ -33,14 +33,14 @@ public class dologin extends HttpServlet
         resp.setContentType("text/html;charset=utf-8");
         // 设置请求编码
         req.setCharacterEncoding("utf-8");
-        System.out.println("POST请求正确");
+        System.out.println("用户发送登录POST请求");
         String username = "";
         String password = "";
         // 获取POST过来的用户名和密码
         username = req.getParameter("username");
         password = req.getParameter("password");
         // 终端显示POST过来的信息，方便测试
-        System.out.println("POST过来的username:"+username+",password:"+password);
+        System.out.println("POST过来的用户名是（"+username+"）,密码是("+password+")。");
         if( "".equals(username) )
         {
             out.print("用户名为空");
@@ -60,9 +60,15 @@ public class dologin extends HttpServlet
                 {
                     if(user.getUsername().equals(username) && user.getPassword().equals(password))
                     {
-                        // 密码正确
-                        System.out.println("账户密码验证成功，允许登陆");
-                        out.print("登陆成功");
+                        // 验证成功
+                        System.out.println("用户名为（"+ username +"）的账户验证成功，允许登陆");
+                        // 设置Session
+                        req.getSession().setAttribute("username",username);
+                        req.getSession().setAttribute("type",user.getType());
+                        req.getSession().setAttribute("uid",user.getUid());
+                        req.getSession().setAttribute("create_time",user.getCrate_time());
+                        resp.sendRedirect("profile.jsp");
+                        //req.getRequestDispatcher("profile.jsp").forward(req,resp);
                     }else
                     {
                         // 密码错误
