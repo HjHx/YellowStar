@@ -3,5 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
+    <servlet>
+        <servlet-name>dologin</servlet-name>
+        <servlet-class>servlet.dologin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dologin</servlet-name>
+        <url-pattern>/dologin</url-pattern>
+    </servlet-mapping>
 </web-app>

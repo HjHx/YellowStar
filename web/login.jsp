@@ -38,7 +38,7 @@
             </h1>
         </div>
         <!-- 登陆表单 -->
-        <form class="form-horizontal" action="dologin.jsp" method="POST" >
+        <form class="form-horizontal" action="dologin" method="POST" >
             <div class="form-group">
                 <label for="username" class="col-sm-3 control-label">用户名</label>
                 <div class="col-sm-8">
