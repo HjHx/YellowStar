@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" >
-    <link href="./csss/navbar.css" rel="stylesheet">
+    <link href="./css/navbar.css" rel="stylesheet">
     <title>Yellow Star - 物业管理系统</title>
 </head>
 <body>
