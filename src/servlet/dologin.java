@@ -43,19 +43,21 @@ public class dologin extends HttpServlet
         System.out.println("POST过来的用户名是（"+username+"）,密码是("+password+")。");
         if( "".equals(username) )
         {
-            out.print("用户名为空");
+            // 用户名为空
+            resp.sendError(403,"ERROR:Username is null!");
         }else
         {
             if ("".equals(password))
             {
-                out.print("密码为空");
+                // 密码为空
+                resp.sendError(403,"ERROR:Password is null!");
             }else
             {
                 User user =  UserCheck.getUser(username);
                 // 账户不存在
                 if (user == null)
                 {
-                    out.print("用户:"+username+"不存在");
+                    resp.sendError(403,"ERROR:user doesn't exists.");
                 }else
                 {
                     if(user.getUsername().equals(username) && user.getPassword().equals(password))

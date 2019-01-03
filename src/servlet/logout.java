@@ -8,7 +8,7 @@ import java.io.IOException;
 
 /**
  * @author: 我的袜子都是洞
- * @description:
+ * @description: 退出登录的servlet
  * @path: web-servlet-logout
  * @date: 2018-12-31 15:55
  */
