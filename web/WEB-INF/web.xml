@@ -19,13 +19,4 @@
         <servlet-name>logout</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
-    <!-- error-code 相关的错误页面 -->
-    <error-page>
-        <error-code>404</error-code>
-        <location>/ErrorHandler</location>
-    </error-page>
-    <error-page>
-        <error-code>403</error-code>
-        <location>/ErrorHandler</location>
-    </error-page>
 </web-app>
