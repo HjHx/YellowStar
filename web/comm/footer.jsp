@@ -7,7 +7,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12 text-center">
-                            <span>Copyright &copy; 2018</span> |
+                            <span>Copyright &copy; 2019</span> |
                             <span>Yellow Star 物业管理系统</span>
                         </div>
                     </div>

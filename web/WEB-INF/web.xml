@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!--登录处理-->
     <servlet>
         <servlet-name>dologin</servlet-name>
         <servlet-class>servlet.dologin</servlet-class>
@@ -11,6 +12,7 @@
         <servlet-name>dologin</servlet-name>
         <url-pattern>/dologin</url-pattern>
     </servlet-mapping>
+    <!--退出处理-->
     <servlet>
         <servlet-name>logout</servlet-name>
         <servlet-class>servlet.logout</servlet-class>
@@ -29,13 +31,13 @@
         <filter-name>encoding</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+    <!--过滤器 root相关url-->
     <filter>
-        <filter-name>loginstatus</filter-name>
-        <filter-class>filter.LoginFilter</filter-class>
+        <filter-name>rootfilter</filter-name>
+        <filter-class>filter.RootFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>loginstatus</filter-name>
-        <url-pattern>/*</url-pattern>
+        <filter-name>rootfilter</filter-name>
+        <url-pattern>/root/*</url-pattern>
     </filter-mapping>
 </web-app>

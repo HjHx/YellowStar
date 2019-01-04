@@ -4,10 +4,10 @@ import javax.servlet.http.*;
 import java.io.IOException;
 /**
  * @Author: 我的袜子都是洞
- * @Description: 登录验证过滤
- * @Date: Created in 2019/1/4 14:41
+ * @Description: 管理员账户url过滤
+ * @Date: Created in 2019/1/4 15:43
  */
-public class LoginFilter implements Filter
+public class RootFilter implements Filter
 {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException
@@ -20,16 +20,16 @@ public class LoginFilter implements Filter
     {
         // 获取Session
         HttpSession session = ((HttpServletRequest)servletRequest).getSession();
-        if(session.getAttribute("username")==null)
+        // 根据session判断是否登录
+        if(session.getAttribute("username")!=null)
         {
-            System.out.println("未登录状态访问");
-            filterChain.doFilter(servletRequest,servletResponse);
-        }else
-        {
-            System.out.println("登录状态访问");
+            System.out.println("管理员账户登录");
             // 正常执行
             filterChain.doFilter(servletRequest,servletResponse);
+            return;
         }
+        System.out.println("未登录状态访问管理员url");
+        ((HttpServletResponse)servletResponse).sendRedirect("login.jsp");
     }
 
     @Override

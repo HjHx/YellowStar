@@ -32,5 +32,5 @@
     }
 %>
 <jsp:include page="comm/nav_end.jsp" />
-    <h1>欢迎用户：<%=name%></h1>
+    <h1>欢迎用户：${username}</h1>
 <jsp:include page="comm/footer.jsp" />
