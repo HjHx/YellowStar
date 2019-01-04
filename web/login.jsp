@@ -2,6 +2,10 @@
 <%
     // 终端显示方便观察，测试代码，上线须删
     System.out.println("访问登录页面");
+
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
 %>
 <jsp:include page="comm/header.jsp" />
 <div class="row clearfix">
@@ -42,7 +46,7 @@
             </h1>
         </div>
         <!-- 登陆表单 -->
-        <form class="form-horizontal" action="dologin" method="POST" >
+        <form class="form-horizontal" action="<%=basePath%>dologin" method="POST" >
             <div class="form-group">
                 <label for="username" class="col-sm-3 control-label">用户名</label>
                 <div class="col-sm-8">
