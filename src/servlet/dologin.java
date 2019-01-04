@@ -54,7 +54,8 @@ public class dologin extends HttpServlet
                 resp.sendError(403,"ERROR:Password is null!");
             }else
             {
-                User user =  UserCheck.getUser(username);
+                // 目前使用测试类，恢复只需将UserCheck2变为UserCheck即可
+                User user =  UserCheck2.getUser(username);
                 // 账户不存在
                 if (user == null)
                 {

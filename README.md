@@ -7,8 +7,6 @@ Java B/S项目
 
 后端：
 - Jsp原生开发
-[![License](https://img.shields.io/badge/Tomcat-v8.5.37.svg)](https://github.com/ruanfumin/YellowStar)
-[![License](https://img.shields.io/badge/Mysql-v8.0.svg)](https://github.com/ruanfumin/YellowStar)
 
 开发进度：
 - 构建了几个前端页面(2018.12.30)
