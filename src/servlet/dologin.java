@@ -29,10 +29,7 @@ public class dologin extends HttpServlet
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         PrintWriter out = resp.getWriter();
-        // 设置响应内容
-        resp.setContentType("text/html;charset=utf-8");
-        // 设置请求编码
-        req.setCharacterEncoding("utf-8");
+
         System.out.println("用户发送登录POST请求");
         String username = "";
         String password = "";
@@ -44,14 +41,19 @@ public class dologin extends HttpServlet
         if( "".equals(username) )
         {
             // 用户名为空
-            out.println("用户名为空");
-            //resp.sendError(403,"ERROR:Username is null!");
+            String message = "用户名为空";
+            out.println(message);
+            req.setAttribute("message",message);
+            req.getRequestDispatcher("/comm/error.jsp").forward(req,resp);
         }else
         {
             if ("".equals(password))
             {
                 // 密码为空
-                resp.sendError(403,"ERROR:Password is null!");
+                String message = "密码为空";
+                out.println(message);
+                req.setAttribute("message",message);
+                req.getRequestDispatcher("/comm/error.jsp").forward(req,resp);
             }else
             {
                 // 目前使用测试类，恢复只需将UserCheck2变为UserCheck即可
@@ -59,7 +61,11 @@ public class dologin extends HttpServlet
                 // 账户不存在
                 if (user == null)
                 {
-                    resp.sendError(403,"ERROR:user doesn't exists.");
+                    // 账户不存在
+                    String message = "账户不存在";
+                    out.println(message);
+                    req.setAttribute("message",message);
+                    req.getRequestDispatcher("/comm/error.jsp").forward(req,resp);
                 }else
                 {
                     if(user.getUsername().equals(username) && user.getPassword().equals(password))
@@ -76,8 +82,10 @@ public class dologin extends HttpServlet
                     }else
                     {
                         // 密码错误
-                        System.out.println("账户存在，密码错误，禁止登陆");
-                        out.print("密码错误");
+                        String message = "密码错误";
+                        out.println(message);
+                        req.setAttribute("message",message);
+                        req.getRequestDispatcher("/comm/error.jsp").forward(req,resp);
                     }
                 }
             }
