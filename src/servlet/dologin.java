@@ -44,7 +44,8 @@ public class dologin extends HttpServlet
         if( "".equals(username) )
         {
             // 用户名为空
-            resp.sendError(403,"ERROR:Username is null!");
+            out.println("用户名为空");
+            //resp.sendError(403,"ERROR:Username is null!");
         }else
         {
             if ("".equals(password))
