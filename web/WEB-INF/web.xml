@@ -31,4 +31,13 @@
         <filter-name>encoding</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <!--登陆过滤器-->
+    <filter>
+        <filter-name>DoLonginFilter</filter-name>
+        <filter-class>filter.DoLonginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>DoLonginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>
