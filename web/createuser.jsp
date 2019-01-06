@@ -7,8 +7,8 @@
         response.sendRedirect("index.jsp");
     }else
 %>
-<jsp:include page="comm/header.jsp" />
-<jsp:include page="comm/nav.jsp" />
+<jsp:include page="comm/header.jsp" flush="true"  />
+<jsp:include page="comm/nav.jsp" flush="true" />
 <div class="panel panel-primary">
     <div class="panel-heading text-center">创建用户</div>
     <div class="panel-body">
@@ -36,4 +36,4 @@
         </form>
     </div>
 </div>
-<jsp:include page="comm/footer.jsp" />
+<jsp:include page="comm/footer.jsp" flush="true" />

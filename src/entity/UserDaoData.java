@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * @author: 我的袜子都是洞
@@ -92,6 +93,35 @@ public class UserDaoData implements UserDaoInterface
         }
         System.out.println("创建用户失败,UserDaoDate");
         return false;
+    }
+
+    public ArrayList<User> getAll()
+    {
+        ArrayList<User> list = new ArrayList<User>();
+        try
+        {
+            conn = DBHelp.getConnection();
+            sql = conn.prepareStatement("SELECT * FROM yw_users");
+            rs = sql.executeQuery();
+            while (rs.next())
+            {
+                User u = new User();
+                u.setUsername(rs.getString("username"));
+                u.setUid(rs.getInt("uid"));
+                u.setCrate_time(rs.getString("create_time"));
+                u.setUser_type(rs.getInt("user_type"));
+                list.add(u);
+            }
+            System.out.println("用户数据获取成功");
+            return list;
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }finally
+        {
+            close();
+        }
+        return null;
     }
 
     /**

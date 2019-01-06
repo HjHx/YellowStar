@@ -43,6 +43,7 @@ public class DoLonginFilter implements Filter
          */
         if(request.getRequestURL().indexOf("index.jsp") !=-1
             || request.getRequestURL().indexOf("login.jsp") != -1
+            || request.getRequestURL().indexOf("aboutme.jsp") != -1
             || request.getRequestURL().indexOf("dologin") != -1
         )
         {

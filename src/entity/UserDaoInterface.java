@@ -21,4 +21,6 @@ public interface UserDaoInterface
      * @return 创建结果
      */
     boolean createUser(User user);
+
+
 }

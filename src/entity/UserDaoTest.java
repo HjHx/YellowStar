@@ -20,7 +20,7 @@ public class UserDaoTest implements UserDaoInterface
 
     @Override
     public boolean createUser(User user) {
-        return false;
+        return true;
     }
 
     /**
