@@ -12,6 +12,16 @@
         <servlet-name>dologin</servlet-name>
         <url-pattern>/dologin</url-pattern>
     </servlet-mapping>
+
+    <!--创建用户处理-->
+    <servlet>
+        <servlet-name>docreateuser</servlet-name>
+        <servlet-class>servlet.docreateuser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>docreateuser</servlet-name>
+        <url-pattern>/docreateuser</url-pattern>
+    </servlet-mapping>
     <!--退出处理-->
     <servlet>
         <servlet-name>logout</servlet-name>

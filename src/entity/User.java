@@ -10,7 +10,7 @@ public class User
     private int uid;
     private String username = "";
     private String password = "";
-    private int type = 3;
+    private int user_type = 3;
     private String crate_time;
 
     public User() { }
@@ -35,16 +35,16 @@ public class User
         return password;
     }
 
+    public int getUser_type() {
+        return user_type;
+    }
+
+    public void setUser_type(int user_type) {
+        this.user_type = user_type;
+    }
+
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
     }
 
     public String getCrate_time()

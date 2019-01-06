@@ -45,9 +45,9 @@ public class dologin extends HttpServlet
                  * 获取用户检查对象
                  * 无数据库测试类，恢复数据库连接只需将UserDaoTest变为UserDaoData即可
                  */
-                UserDaoInterface userCheck = new UserDaoData();
+                UserDaoInterface userDao = new UserDaoData();
                 // 用户名不为空才验证
-                User user = userCheck.getUser(username);
+                User user = userDao.getUser(username);
                 // 能够获取到user，表明用户存在，再验证密码
                 if(user != null)
                 {
@@ -58,7 +58,7 @@ public class dologin extends HttpServlet
                         System.out.println("验证成功，允许登陆");
                         // 设置账户相关Session
                         req.getSession().setAttribute("username",username);
-                        req.getSession().setAttribute("type",user.getType());
+                        req.getSession().setAttribute("user_type",user.getUser_type());
                         req.getSession().setAttribute("uid",user.getUid());
                         req.getSession().setAttribute("create_time",user.getCrate_time());
                         // 使用服务器内部跳转

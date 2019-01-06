@@ -34,7 +34,7 @@ public class UserDaoTest implements UserDaoInterface
         user.setUid(1);
         user.setUsername("admin");
         user.setPassword("admin");
-        user.setType(1);
+        user.setUser_type(1);
         user.setCrate_time("2019-01-04");
     }
     /**
@@ -48,7 +48,7 @@ public class UserDaoTest implements UserDaoInterface
         user.setUid(2);
         user.setUsername("admin");
         user.setPassword("admin");
-        user.setType(2);
+        user.setUser_type(2);
         user.setCrate_time("2019-01-04");
     }
     /**
@@ -62,7 +62,7 @@ public class UserDaoTest implements UserDaoInterface
         user.setUid(3);
         user.setUsername("admin");
         user.setPassword("admin");
-        user.setType(3);
+        user.setUser_type(3);
         user.setCrate_time("2019-01-01");
     }
 }

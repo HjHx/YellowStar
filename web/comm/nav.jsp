@@ -3,10 +3,10 @@
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
     String name = "";
-    int type;
+    int user_type;
     name = (String)session.getAttribute("username");
-    type = (int)session.getAttribute("type");
-    switch (type){
+    user_type = (int)session.getAttribute("user_type");
+    switch (user_type){
         case 1:
 %>
 <!-- 导航部分 -->
@@ -21,9 +21,10 @@
                 <a href="#">主页</a>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">业主查询<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">用户管理<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">业主户型信息查询</a></li>
+                    <li><a href="createuser.jsp">创建用户</a></li>
+                    <li><a href="#">管理用户</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -50,13 +51,6 @@
                 <ul class="dropdown-menu">
                     <li><a href="#">报修受理</a></li>
                     <li><a href="#">投诉查询</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">设备管理<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">设备信息添加</a></li>
-                    <li><a href="#">设备信息查询</a></li>
                 </ul>
             </li>
         </ul>

@@ -13,13 +13,14 @@ import java.sql.Statement;
  */
 public class UserDaoData implements UserDaoInterface
 {
+    private Connection conn = null;
+    private ResultSet rs = null;
+    private Statement stmt = null;
+    private PreparedStatement sql = null;
+
     @Override
     public User getUser(String username)
     {
-        Connection conn = null;
-        ResultSet rs = null;
-        PreparedStatement sql;
-        Statement stmt = null;
         User user = null;
         if(username != null)
         {
@@ -35,7 +36,7 @@ public class UserDaoData implements UserDaoInterface
                     user.setUid(rs.getInt("uid"));
                     user.setUsername(rs.getString("username"));
                     user.setPassword(rs.getString("password"));
-                    user.setType(rs.getInt("type"));
+                    user.setUser_type(rs.getInt("User_type"));
                     user.setCrate_time(rs.getString("create_time"));
                     System.out.println("用户ID:"+user.getUid()+",username:"+user.getUsername());
                 }
@@ -46,29 +47,7 @@ public class UserDaoData implements UserDaoInterface
 
             }finally
             {
-                // 及时关闭资源
-                if(rs != null)
-                {
-                    try
-                    {
-                        rs.close();
-                        rs = null;
-                    }catch(Exception e)
-                    {
-                        e.printStackTrace();
-                    }
-                }
-                if(stmt != null)
-                {
-                    try
-                    {
-                        stmt.close();
-                        stmt = null;
-                    }catch(Exception e)
-                    {
-                        e.printStackTrace();
-                    }
-                }
+                close();
                 return user;
             }
         }
@@ -76,12 +55,73 @@ public class UserDaoData implements UserDaoInterface
     }
 
     @Override
-    public boolean createUser(User user)
-    {
-        if(user != null)
+    public boolean createUser(User user) {
+        if (user != null)
         {
-
+            // 判断用户是否已经存在
+            User has_user = null;
+            has_user = getUser(user.getUsername());
+            if (has_user == null)
+            {
+                try
+                {
+                    conn = DBHelp.getConnection();
+                    sql = null;
+                    sql = conn.prepareStatement("INSERT INTO yw_users (username,password,user_type,create_time) VALUES (?,?,?,?)");
+                    sql.setString(1,user.getUsername());
+                    sql.setString(2,user.getPassword());
+                    sql.setInt(3,user.getUser_type());
+                    sql.setString(4,user.getCrate_time());
+                    sql.execute();
+                    System.out.println("用户"+user.getUsername()+"创建成功");
+                    return true;
+                } catch (Exception e)
+                {
+                    e.printStackTrace();
+                } finally
+                {
+                    // 关系资源
+                    close();
+                }
+            }else
+            {
+                // 用户已存在，禁止创建
+                System.out.println("用户" + has_user.getUsername() + "已存在");
+                return false;
+            }
         }
+        System.out.println("创建用户失败,UserDaoDate");
         return false;
     }
+
+    /**
+     * 及时关闭资源
+     */
+    private void close()
+    {
+        // 及时关闭资源
+        if(rs != null)
+        {
+            try
+            {
+                rs.close();
+                rs = null;
+            }catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        if(stmt != null)
+        {
+            try
+            {
+                stmt.close();
+                stmt = null;
+            }catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
