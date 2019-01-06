@@ -1,18 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String name = (String)session.getAttribute("username");
-    int uid = (int) session.getAttribute("uid");
-    int type = (int)session.getAttribute("type");
-    String crate_time = (String)session.getAttribute("create_time");
-%>
-<jsp:include page="../comm/header.jsp" />
-<jsp:include page="../comm/root_nav.jsp" />
-<jsp:include page="../comm/nav_end.jsp" />
-
+<jsp:include page="comm/header.jsp" />
+<jsp:include page="comm/nav.jsp" />
 <div class="panel panel-primary">
     <div class="panel-heading text-center">创建用户</div>
     <div class="panel-body">
-        <form action="root/docreateuser" method="POST">
+        <form action="docreateuser" method="POST">
             <div class="form-group">
                 <label >用户名</label>
                 <p class="help-block">支持中文、字母、数字</p>
@@ -38,9 +30,7 @@
             <div class="text-center">
                 <button type="submit" class="btn btn-info">立即创建</button>
             </div>
-
         </form>
     </div>
 </div>
-
-<jsp:include page="../comm/footer.jsp" />
+<jsp:include page="comm/footer.jsp" />

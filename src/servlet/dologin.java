@@ -36,25 +36,39 @@ public class dologin extends HttpServlet
         password = req.getParameter("password");
         // 终端显示POST过来的信息，方便测试
         System.out.println("账户[username:"+username+",password:"+password+"]尝试登陆.");
-        /**
-         * 无数据库测试类，恢复数据库连接只需将UserCheck2变为UserCheck即可
-         */
-        User user =  UserCheck2.getUser(username);
-        // 用户名不为空才验证
+        // 用户名非空才会获取user对象进行账号密码验证
         if(!("".equals(username)))
         {
-            // 验证账户密码
-            if(user.getUsername().equals(username) && user.getPassword().equals(password))
+            try
             {
-                // 终端信息输出：方便观测
-                System.out.println("验证成功，允许登陆");
-                // 设置账户相关Session
-                req.getSession().setAttribute("username",username);
-                req.getSession().setAttribute("type",user.getType());
-                req.getSession().setAttribute("uid",user.getUid());
-                req.getSession().setAttribute("create_time",user.getCrate_time());
-                // 使用服务器内部跳转
-                req.getRequestDispatcher("profile.jsp").forward(req,resp);
+                /**
+                 * 获取用户检查对象
+                 * 无数据库测试类，恢复数据库连接只需将UserDaoTest变为UserDaoData即可
+                 */
+                UserDaoInterface userCheck = new UserDaoData();
+                // 用户名不为空才验证
+                User user = userCheck.getUser(username);
+                // 能够获取到user，表明用户存在，再验证密码
+                if(user != null)
+                {
+                    // 验证账户密码
+                    if(user.getUsername().equals(username) && user.getPassword().equals(password))
+                    {
+                        // 终端信息输出：方便观测
+                        System.out.println("验证成功，允许登陆");
+                        // 设置账户相关Session
+                        req.getSession().setAttribute("username",username);
+                        req.getSession().setAttribute("type",user.getType());
+                        req.getSession().setAttribute("uid",user.getUid());
+                        req.getSession().setAttribute("create_time",user.getCrate_time());
+                        // 使用服务器内部跳转
+                        req.getRequestDispatcher("profile.jsp").forward(req,resp);
+                        return;
+                    }
+                }
+            }catch (Exception e)
+            {
+                e.printStackTrace();
             }
         }
         // 登陆失败，请检查用户名和密码

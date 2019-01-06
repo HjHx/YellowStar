@@ -11,8 +11,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="<%=basePath%>bootstrap-3.3.7-dist/css/bootstrap.min.css" >
-    <link href="<%=basePath%>css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="<%=basePath%>static/bootstrap-3.3.7-dist/css/bootstrap.min.css" >
+    <link href="<%=basePath%>static/css/navbar.css" rel="stylesheet">
     <title>Yellow Star - 物业管理系统</title>
 </head>
 <body>

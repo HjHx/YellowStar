@@ -5,15 +5,22 @@ package entity;
  * @Description: 无数据库测试类
  * @Date: Created in 2019/1/4 14:29
  */
-public class UserCheck2
+public class UserDaoTest implements UserDaoInterface
 {
     private static User user = null;
-    public static User getUser(String username)
+
+    @Override
+    public User getUser(String username)
     {
         getAdmin();
-        System.out.println("正在使用账户测试类，未连接数据库");
+        System.out.println("目前使用账户测试类，未连接数据库");
         System.out.println("测试账户信息：[uid:"+user.getUid()+",username:"+user.getUsername()+",password"+user.getPassword()+"]");
         return user;
+    }
+
+    @Override
+    public boolean createUser(User user) {
+        return false;
     }
 
     /**

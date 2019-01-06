@@ -8,12 +8,13 @@ import java.sql.Statement;
 /**
  * @author: 我的袜子都是洞
  * @description: 操作用户的实体类
- * @path: web-entity-UserCheck
+ * @path: web-entity-UserDaoData
  * @date: 2018-12-30 20:13
  */
-public class UserCheck
+public class UserDaoData implements UserDaoInterface
 {
-    public static User getUser(String username)
+    @Override
+    public User getUser(String username)
     {
         Connection conn = null;
         ResultSet rs = null;
@@ -72,5 +73,15 @@ public class UserCheck
             }
         }
         return null;
+    }
+
+    @Override
+    public boolean createUser(User user)
+    {
+        if(user != null)
+        {
+
+        }
+        return false;
     }
 }
