@@ -24,10 +24,14 @@
                 <a href="<%=basePath%>index.jsp">主页</a>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">用户管理<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">基础管理<span class="caret"></span></a>
                 <ul class="dropdown-menu">
+                    <li class="dropdown-header">用户管理</li>
                     <li><a href="createuser.jsp">创建用户</a></li>
-                    <li><a href="usermanage.jsp">管理用户</a></li>
+                    <li><a href="usermanage.jsp">用户管理</a></li>
+                    <li class="dropdown-header">房产信息管理</li>
+                    <li><a href="addhouse.jsp">添加房产信息</a></li>
+                    <li><a href="#">查看房产信息</a></li>
                 </ul>
             </li>
             <li class="dropdown">

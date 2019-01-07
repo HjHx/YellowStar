@@ -22,6 +22,15 @@
         <servlet-name>docreateuser</servlet-name>
         <url-pattern>/docreateuser</url-pattern>
     </servlet-mapping>
+    <!--添加房产信息处理-->
+    <servlet>
+        <servlet-name>doaddhouse</servlet-name>
+        <servlet-class>servlet.doaddhouse</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doaddhouse</servlet-name>
+        <url-pattern>/doaddhouse</url-pattern>
+    </servlet-mapping>
     <!--退出处理-->
     <servlet>
         <servlet-name>logout</servlet-name>

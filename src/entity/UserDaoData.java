@@ -37,7 +37,7 @@ public class UserDaoData implements UserDaoInterface
                     user.setUid(rs.getInt("uid"));
                     user.setUsername(rs.getString("username"));
                     user.setPassword(rs.getString("password"));
-                    user.setUser_type(rs.getInt("User_type"));
+                    user.setUser_type(rs.getInt("user_type"));
                     user.setCrate_time(rs.getString("create_time"));
                     System.out.println("用户ID:"+user.getUid()+",username:"+user.getUsername());
                 }
@@ -75,14 +75,12 @@ public class UserDaoData implements UserDaoInterface
                     sql.setString(4,user.getCrate_time());
                     sql.execute();
                     System.out.println("用户"+user.getUsername()+"创建成功");
+                    // 关系资源
+                    close();
                     return true;
                 } catch (Exception e)
                 {
                     e.printStackTrace();
-                } finally
-                {
-                    // 关系资源
-                    close();
                 }
             }else
             {
@@ -148,6 +146,16 @@ public class UserDaoData implements UserDaoInterface
                 stmt.close();
                 stmt = null;
             }catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        if(conn !=null)
+        {
+            try
+            {
+                conn.close();
+            }catch (Exception e)
             {
                 e.printStackTrace();
             }
